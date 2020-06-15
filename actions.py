@@ -12,12 +12,6 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-timezone = {
-    "London": "UTC+1:00",
-    "Sofia": "UTC+1:3:00",
-    "Lisbon": "UTC+1:00",
-    "Mumbai": "UTC+5:30",
-}
 
 
 class ActionShowTimeZone(Action):
@@ -27,16 +21,17 @@ class ActionShowTimeZone(Action):
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
+            domain: Dict[Text, Any]) -> List[Dict]:
+       
+        time = {"London": "UTC+1:00","Sofia": "UTC+1:3:00","Lisbon": "UTC+1:00","Mumbai": "UTC+5:30",}
         city = tracker.get_slot("city")
-        timezone = timezone.get(city)
+        time = time.get(city)
 
-        if timezone is None:
+        if time is None:
             output = "Could not find the time zone of {}".format(city)
         else:
-            output = "Time zone of {}".format(city, timezone)    
+            output = "Time zone of {} is {}".format(city, time)    
 
-        dispatcher.utter_message(text=output)
+        dispatcher.utter_message(output)
 
         return []
