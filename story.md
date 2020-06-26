@@ -186,7 +186,7 @@
 * goodbye
 	- utter_bye
 
-## path10- a new customer going for free as well as paid course but didn't took both
+## path11- a new customer going for free as well as paid course but didn't took both
 * about_missionED
 	- utter_intro_to_MissionEd
 * about_product
@@ -213,6 +213,72 @@
 	- utter_noworries
 * goodbye
 	- utter_bye 
+
+## path12- a new person directly going for paid course but didn't took
+* about_missionED
+	- utter_intro_to_MissionEd
+* about_product
+	- utter_explain_product
+* course
+	- info_form
+	- form{"name": "info_form"}
+	- form{"name":null}
+* price
+	- utter_tell_price
+* deny
+    - sorry_this_is_not_what_i_wanted
+* thankyou
+	- utter_noworries
+* goodbye
+	- utter_bye
+
+## path13- a new person directly going for free course but didn't took
+* about_missionED
+	- utter_intro_to_MissionEd
+* about_product
+	- utter_explain_product
+* course
+	- info_form
+	- form{"name": "info_form"}
+	- form{"name":null}
+* free_course
+	- utter_ask_interested
+* affirm
+	- utter_free_course_link
+* deny
+    - sorry_this_is_not_what_i_wanted	
+* thankyou
+	- utter_noworries
+* goodbye
+	- utter_bye	
+
+## path14- an existing missionEd customer comes for a new paid course but didn't took
+* course
+	- info_form
+	- form{"name": "info_form"}
+	- form{"name":null}
+* price
+	- utter_tell_price
+* deny
+    - sorry_this_is_not_what_i_wanted
+* thankyou
+	- utter_noworries
+* goodbye
+	- utter_bye 
+
+## path5- an existing missionEd customer comes for a free course but didn't took
+* free_course
+	- utter_ask_interested
+* affirm
+	- utter_free_course_link
+* deny
+    - sorry_this_is_not_what_i_wanted	
+* thankyou
+	- utter_noworries
+* goodbye
+	- utter_bye	
+
+
 
 
 
